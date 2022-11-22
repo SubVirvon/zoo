@@ -1,0 +1,8 @@
+C:\Users\Danii\source\repos\zoo\zoo\bin\Debug\zoo.exe.config
+C:\Users\Danii\source\repos\zoo\zoo\bin\Debug\zoo.exe
+C:\Users\Danii\source\repos\zoo\zoo\bin\Debug\zoo.pdb
+C:\Users\Danii\source\repos\zoo\zoo\obj\Debug\zoo.csproj.AssemblyReference.cache
+C:\Users\Danii\source\repos\zoo\zoo\obj\Debug\zoo.csproj.SuggestedBindingRedirects.cache
+C:\Users\Danii\source\repos\zoo\zoo\obj\Debug\zoo.csproj.CoreCompileInputs.cache
+C:\Users\Danii\source\repos\zoo\zoo\obj\Debug\zoo.exe
+C:\Users\Danii\source\repos\zoo\zoo\obj\Debug\zoo.pdb
