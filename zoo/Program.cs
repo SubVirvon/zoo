@@ -22,7 +22,7 @@ namespace zoo
 
         public Zoo()
         {
-            _aviaries = new Aviary[] {new Aviary("Клетка с тиграми", "тигр", "рычание", 2), new Aviary("Клетка с жирафами", "жираф", "топот жирафов", 2), new Aviary("Загон с овцами", "овца", "блеяние", 6), new Aviary("Клетка с попугаями", "попугай", "чириканье", 8) };
+            _aviaries = new Aviary[] {new Aviary("Клетка с тиграми", "тигр", "рычание", 2), new Aviary("Клетка с жирафами", "жираф", "топот жирафа", 2), new Aviary("Загон с овцами", "овца", "блеяние", 6), new Aviary("Клетка с попугаями", "попугай", "чириканье", 8) };
         }
 
         public void Work()
@@ -67,39 +67,39 @@ namespace zoo
     class Aviary
     {
         private Animal[] _animals;
-        private string _sound;
         private Random _random;
         public string Name { get; private set; }
 
-        public Aviary(string name, string animalsName, string sound, int animalsCount)
+        public Aviary(string name, string animalsName, string animalsSound, int animalsCount)
         {
             _random = new Random();
-            _animals = AddAnimals(animalsName, animalsCount);
+            _animals = AddAnimals(animalsName, animalsSound, animalsCount);
             Name = name;
-            _sound = sound;
         }
 
         public void ShowInfo()
         {
             Console.Clear();
-            Console.WriteLine($"{Name}\nВы слышите: {_sound}\nКоличество животныйх: {_animals.Length}");
+            Console.WriteLine($"{Name}\nКоличество животныйх: {_animals.Length}");
 
             foreach(var animal in _animals)
             {
                 animal.ShowInfo();
             }
 
+            _animals[_random.Next(_animals.Length)].MakeSound();
+
             Console.ReadKey();
         }
 
-        private Animal[] AddAnimals(string animalsName, int animalsCount)
+        private Animal[] AddAnimals(string animalsName, string animalSound, int animalsCount)
         {
             Animal[] animals = new Animal[animalsCount];
             string[] genderVariant = new string[2] {"самец", "самка"};
 
             for(int i = 0; i < animalsCount; i++)
             {
-                animals[i] = new Animal(genderVariant[_random.Next(genderVariant.Length)], animalsName);
+                animals[i] = new Animal(genderVariant[_random.Next(genderVariant.Length)], animalsName, animalSound);
             }
 
             return animals;
@@ -110,16 +110,23 @@ namespace zoo
     {
         private string _gender;
         private string _name;
+        private string _sound;
 
-        public Animal(string gender, string name)
+        public Animal(string gender, string name, string sound)
         {
             _gender = gender;
             _name = name;
+            _sound = sound;
         }
 
         public void ShowInfo()
         {
             Console.WriteLine($"{_name} - {_gender}");
+        }
+
+        public void MakeSound()
+        {
+            Console.WriteLine($"Вы слышите: {_sound}");
         }
     }
 }
